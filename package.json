@@ -1,0 +1,12 @@
+{
+  "name": "dominion-ai-auralift",
+  "version": "1.0.0",
+  "description": "Dominion AI: All-in-one viral ad empire for AuraLift Essentials skincare.",
+  "private": true,
+  "scripts": {
+    "deploy": "vercel --prod --token=$VERCEL_TOKEN"
+  },
+  "dependencies": {
+    "vercel": "^37.0.0"
+  }
+}
