@@ -37,6 +37,7 @@ README.md
 - Runs after a successful deploy
 - Uses Python 3 and the packages in `scripts/trading/requirements.txt`
 - Requires `ALPACA_API_KEY` and `ALPACA_API_SECRET` secrets; falls back to dry-run if absent
+- Uses the Alpaca **paper** trading endpoint (`https://paper-api.alpaca.markets`) by default; switch to `https://api.alpaca.markets` for live trading
 
 ## Required Secrets
 
@@ -49,7 +50,7 @@ README.md
 ## Development Guidelines
 
 - **Python**: Follow PEP 8. Use `logging` (not `print`) for all output in scripts.
-- **Dependencies**: Pin Python package versions with both lower and upper bounds (e.g., `>=x.y,<z.0`).
+- **Dependencies**: Pin Python package versions with both lower and upper bounds to allow patch/minor updates while guarding against breaking major-version changes (e.g., `>=x.y,<(x+1).0`).
 - **Secrets**: Never hard-code credentials. Always read from environment variables via `os.environ.get(...)`.
 - **Error handling**: Wrap external API calls in try/except and re-raise after logging.
 - **Workflow actions**: Prefer pinning GitHub Actions to a specific major version (e.g., `@v4`).
